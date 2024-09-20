@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% comment %} 템플릿 상속부터 {% endcomment %}
+
+{% block content %}
+  {% comment %} 1번 할 일 : DTL Filter {% endcomment %}
+  <p> {{picked}} 메뉴는 {{picked | length}} 글자 입니다. </p>
+  {% comment %} {{ }} 내부에는 DIC의 key 값이 들어간다. {% endcomment %}
+
+  {% comment %} 2번 할 일, DTL for 문(반복문) {% endcomment %}
+  <h2> 메뉴판 </h2>
+  <ul>
+    {% for food in foods %}
+    <li>{{food}}</li> {% comment %} 4번 돌겠거니 생각할 수 있다. foods가 4개니까 {% endcomment %}
+    {% endfor %}
+  </ul>
+
+  {% comment %} 3번 할 일, DTL if문(조건문) {% endcomment %}
+  {% if foods|length == 0 %}
+    <p> 메뉴가 소진되었습니다. </p>
+  {% else %}
+    <p> 아직 메뉴가 남았습니다. </p>
+  {% endif %}
+
+{% endblock content %}
+
+

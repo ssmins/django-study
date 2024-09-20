@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Throw</h1>
+{% comment %} url naming pattern {% endcomment %}
+{% comment %} {% url app_name(namespace):naming URL 패턴 %} {% endcomment %}
+<form action="{% url 'articles:catch' %}" method= "GET">
+  {% comment %} name을 바꾸면 -> 1. url이 바뀐다. 2. request의 key가 바뀐다. {% endcomment %}
+  <input type="text" name= 'throw'>
+  <input type="submit">
+</form>
+{% comment %} 
+여기의 articles는 url.py의 appname이 articles라서 그렇다. directory name 이 아니다. 
+{% endcomment %}
+
+
+{% endblock content %}

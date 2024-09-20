@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% comment %} action= "요청 보낼 url(서버의 주소)" {% endcomment %}
+{% comment %} ?를 기준으로, 왼쪽은 URL, 오른쪽은 querry string parameter 라고 한다. {% endcomment %}
+<form action="https://search.naver.com/search.naver" method= "GET">
+  <label for="message"> 검색어를 입력하세요. </label>
+  {% comment %} 우리가 input으로 입력한 text는 value가 된다.
+  그렇다면 key는 무엇으로 할 건가 ? => 사이트마다 다르다. (naver: query) - name 은 key {% endcomment %}
+
+  <input type="text", name="query">
+  <input type="submit">
+
+</form>
+
+
+{% endblock content %}
+
+
+{% comment %} 
+method = "GET" 
+1. GET 방식 - URL에 데이터가 노출됨 
+2. POST 방식 - URL에 데이터가 노출되지 않음 - 보안성이 더 좋다 
+보안성은 POST 방식이 더 좋지만, GET 방식을 쓰는 이유 ? 근본적인 이유는 '간단해서'
+POST 방식은 CSRF 토큰을 활용해야 하기 때문에 복잡하다. 
+{% endcomment %}
